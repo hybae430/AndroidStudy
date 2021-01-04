@@ -34,8 +34,10 @@ fun main() {
         number == 4.3213
     }
     println(invokeLambda(lambda))               // 위 lambda를 넣을 경우 5.2343과 같지 않으므로 false
-    println(invokeLambda({it > 3.22}))          // 5.2343이 3.22보다 크므로 true
-                                                // var lambda가 없어도 실행됨 (왜지..)
+    println(invokeLambda({ it > 3.22 }))        // 5.2343이 3.22보다 크므로 true
+    println(invokeLambda { it > 3.22 })         // 같은 식 (마지막 인자가 lambda식일 때 소괄호 생략 가능)
+
+
 }
 
 // 확장함수
@@ -53,7 +55,7 @@ fun extendString(name : String, age : Int) : String {
 // 람다의 Return
 
 val calculateGrade : (Int) -> String = {        // input type은 여러 개가 있을 수 있으므로 () 필요
-    when (it) {
+    when (it) {                                 // input이 1개이므로 it 사용가능
         in 0..40 -> "fail"
         in 41..70 -> "pass"
         in 71..100 -> "perfect"

@@ -99,13 +99,14 @@ fun checkNum(score : Int) {
 // List 1. (Immutable)List(읽기전용) 2. Mutable List
 
 fun array() {
-    val array = arrayOf(1, 2, 3)
+    val array = arrayOf(1, 2, 3)            // 초기화
     val list = listOf(1, 2, 3)
 
     val array2 = arrayOf(1, "d", 3.4f)      // Type: Any
     val list2 = listOf(1, "d", 11L)
 
-    array[0] = 3
+    array[0] = 3                            // array는 가능 (size만 같으면)
+//    list[0] = 3                           // list는 immutable이라 값 변경 불가능
     var result = list.get(0)
 
     val arrayList = arrayListOf<Int>()      // mutable list의 한 종류
@@ -126,6 +127,7 @@ fun forAndWhile() {
 
     var sum : Int = 0
     for (i in 1..10 step 2) {               // step a는 a씩 건너뛰는 것
+                                            // a..b 는 1 이상 b 이하 (둘 다 포함)
         sum += i
     }
     println(sum)
